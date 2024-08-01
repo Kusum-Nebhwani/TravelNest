@@ -80,9 +80,9 @@ app.use("/listings", listings);
 app.use("/listings/:id/reviews", reviews);
 app.use("/",users);
 
-// app.use("*", (req, res, next) => {
-//   next(new ExpressError(404, "Page not Found!"));
-// });
+app.use("*", (req, res, next) => {
+  next(new ExpressError(404, "Page not Found!"));
+});
 //middleware
 app.use((err, req, res, next) => {
   let { statusCode = 500, message = "Something Went Wrong!" } = err;
