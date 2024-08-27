@@ -10,6 +10,8 @@ const sampleListings = [
       price: 1500,
       location: "Malibu",
       country: "United States",
+      category: "Beachfront",
+
     },
     {
       title: "Modern Loft in Downtown",
@@ -22,6 +24,8 @@ const sampleListings = [
       price: 1200,
       location: "New York City",
       country: "United States",
+      category: "Iconic Cities",
+
     },
     {
       title: "Mountain Retreat",
@@ -34,6 +38,7 @@ const sampleListings = [
       price: 1000,
       location: "Aspen",
       country: "United States",
+      category: "Trending",
     },
     {
       title: "Historic Villa in Tuscany",
@@ -46,6 +51,8 @@ const sampleListings = [
       price: 2500,
       location: "Florence",
       country: "Italy",
+      category: "Iconic Cities",
+
     },
     {
       title: "Secluded Treehouse Getaway",
@@ -58,6 +65,8 @@ const sampleListings = [
       price: 800,
       location: "Portland",
       country: "United States",
+      category: "Beachfront",
+
     },
     {
       title: "Beachfront Paradise",
@@ -70,6 +79,8 @@ const sampleListings = [
       price: 2000,
       location: "Cancun",
       country: "Mexico",
+      category: "Beachfront",
+
     },
     {
       title: "Rustic Cabin by the Lake",
@@ -82,6 +93,8 @@ const sampleListings = [
       price: 900,
       location: "Lake Tahoe",
       country: "United States",
+      category: "Beachfront",
+
     },
     {
       title: "Luxury Penthouse with City Views",
@@ -94,6 +107,8 @@ const sampleListings = [
       price: 3500,
       location: "Los Angeles",
       country: "United States",
+      category: "Iconic Cities",
+
     },
     {
       title: "Ski-In/Ski-Out Chalet",
@@ -106,6 +121,8 @@ const sampleListings = [
       price: 3000,
       location: "Verbier",
       country: "Switzerland",
+      category: "Amazing Pools",
+
     },
     {
       title: "Safari Lodge in the Serengeti",
@@ -118,6 +135,8 @@ const sampleListings = [
       price: 4000,
       location: "Serengeti National Park",
       country: "Tanzania",
+      category: "Arctic",
+
     },
     {
       title: "Historic Canal House",
@@ -130,6 +149,7 @@ const sampleListings = [
       price: 1800,
       location: "Amsterdam",
       country: "Netherlands",
+      category: "Domes",
     },
     {
       title: "Private Island Retreat",
@@ -142,6 +162,8 @@ const sampleListings = [
       price: 10000,
       location: "Fiji",
       country: "Fiji",
+      category: "Beachfront",
+
     },
     {
       title: "Charming Cottage in the Cotswolds",
@@ -154,6 +176,7 @@ const sampleListings = [
       price: 1200,
       location: "Cotswolds",
       country: "United Kingdom",
+      category: "Iconic Cities",
     },
     {
       title: "Historic Brownstone in Boston",
@@ -166,6 +189,8 @@ const sampleListings = [
       price: 2200,
       location: "Boston",
       country: "United States",
+      category: "Trending",
+
     },
     {
       title: "Beachfront Bungalow in Bali",
@@ -178,6 +203,8 @@ const sampleListings = [
       price: 1800,
       location: "Bali",
       country: "Indonesia",
+      category: "Beachfront",
+
     },
     {
       title: "Mountain View Cabin in Banff",
@@ -190,6 +217,8 @@ const sampleListings = [
       price: 1500,
       location: "Banff",
       country: "Canada",
+      category: "Trending",
+
     },
     {
       title: "Art Deco Apartment in Miami",
@@ -202,6 +231,8 @@ const sampleListings = [
       price: 1600,
       location: "Miami",
       country: "United States",
+      category: "Iconic Cities",
+
     },
     {
       title: "Tropical Villa in Phuket",
@@ -214,11 +245,13 @@ const sampleListings = [
       price: 3000,
       location: "Phuket",
       country: "Thailand",
+      category: "Domes",
+
     },
     {
-      title: "Historic Castle in Scotland",
+      title: "Historic Castels in Scotland",
       description:
-        "Live like royalty in this historic castle in the Scottish Highlands. Explore the rugged beauty of the area.",
+        "Live like royalty in this historic castels in the Scottish Highlands. Explore the rugged beauty of the area.",
       image: {
         filename: "listingimage",
         url: "https://images.unsplash.com/photo-1585543805890-6051f7829f98?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fGJlYWNoJTIwdmFjYXRpb258ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60",
@@ -226,6 +259,8 @@ const sampleListings = [
       price: 4000,
       location: "Scottish Highlands",
       country: "United Kingdom",
+      category: "Castels",
+
     },
     {
       title: "Desert Oasis in Dubai",
@@ -238,6 +273,8 @@ const sampleListings = [
       price: 5000,
       location: "Dubai",
       country: "United Arab Emirates",
+      category: "Trending",
+
     },
     {
       title: "Rustic Log Cabin in Montana",
@@ -250,6 +287,8 @@ const sampleListings = [
       price: 1100,
       location: "Montana",
       country: "United States",
+      category: "Rooms",
+
     },
     {
       title: "Beachfront Villa in Greece",
@@ -262,6 +301,8 @@ const sampleListings = [
       price: 2500,
       location: "Mykonos",
       country: "Greece",
+      category: "Rooms",
+
     },
     {
       title: "Eco-Friendly Treehouse Retreat",
@@ -274,6 +315,8 @@ const sampleListings = [
       price: 750,
       location: "Costa Rica",
       country: "Costa Rica",
+      category: "Amazing Pools",
+
     },
     {
       title: "Historic Cottage in Charleston",
@@ -286,6 +329,9 @@ const sampleListings = [
       price: 1600,
       location: "Charleston",
       country: "United States",
+      category: "Iconic Cities",
+
+
     },
     {
       title: "Modern Apartment in Tokyo",
@@ -298,6 +344,8 @@ const sampleListings = [
       price: 2000,
       location: "Tokyo",
       country: "Japan",
+      category: "Rooms",
+
     },
     {
       title: "Lakefront Cabin in New Hampshire",
@@ -310,6 +358,8 @@ const sampleListings = [
       price: 1200,
       location: "New Hampshire",
       country: "United States",
+      category: "Beachfront",
+
     },
     {
       title: "Luxury Villa in the Maldives",
@@ -322,6 +372,8 @@ const sampleListings = [
       price: 6000,
       location: "Maldives",
       country: "Maldives",
+      category: "Domes",
+
     },
     {
       title: "Ski Chalet in Aspen",
@@ -334,6 +386,7 @@ const sampleListings = [
       price: 4000,
       location: "Aspen",
       country: "United States",
+      catogory: "Arctic"
     },
     {
       title: "Secluded Beach House in Costa Rica",
@@ -346,6 +399,8 @@ const sampleListings = [
       price: 1800,
       location: "Costa Rica",
       country: "Costa Rica",
+      category: "Amazing Pools",
+
     },
   ];
   

@@ -1,11 +1,19 @@
+if (process.env.NODE_ENV !== "production") {
+  require("dotenv").config();
+}
+
+
 const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
 const session = require("express-session");
+const MongoStore = require('connect-mongo');
 const flash = require("connect-flash");
 const passport = require("passport");
 const localStrategy = require("passport-local");
 const User = require("./models/user.js");
+const ejs = require('ejs');
+
 
 const path = require("path");
 const methodOverride = require("method-override");
@@ -17,10 +25,10 @@ const users = require("./routes/user.js");
 const listings = require("./routes/listing.js");
 const reviews = require("./routes/review.js");
 
-
 const port = 8000;
 
-const mongo_url = "mongodb://localhost:27017/TravelNest";
+const db_url = process.env.ATLAS_DB_URL;
+
 
 app.set("view engine", "ejs");
 
@@ -29,7 +37,6 @@ app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride("_method"));
 app.use(express.static(path.join(__dirname, "public")));
 app.engine("ejs", ejsMate);
-
 
 main()
   .then(() => {
@@ -40,45 +47,60 @@ main()
   });
 
 async function main() {
-  await mongoose.connect(mongo_url);
+  await mongoose.connect(db_url);
 }
+const store = MongoStore.create({
+  mongoUrl: db_url,
+  crypto:{
+    secret : process.env.SECRET,
+  },
+  touchAfter:24*3600
+
+})
+store.on("error",(err)=>{ console.log("error in Mongose Sesssion Store",err); });
 
 const sessionOptions = {
-  secret: 'mysupersecretcode',
+  store,
+  secret: process.env.SECRET,
   resave: false,
   saveUninitialized: true,
-  Cookie:{
-    expires : Date.now() + 7 * 24 * 60 * 60 * 1000,
-    maxAge : 7 * 24 * 60 * 60 * 1000,
-    httpOnly: true
-  }
+  cookie: {
+    maxAge: 7 * 24 * 60 * 60 * 1000,
+    httpOnly: true,
+  },
 };
+
+
+
 
 app.use(session(sessionOptions));
 app.use(flash());
-
 
 app.use(passport.initialize());
 app.use(passport.session());
 passport.use(new localStrategy(User.authenticate()));
 
-
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
-
-
-app.use((req,res,next)=>{
+app.use((req, res, next) => {
   res.locals.success = req.flash("success");
   res.locals.error = req.flash("error");
   res.locals.currUser = req.user;
   next();
-
 });
+
+
+
+app.get('/root', (req, res) => {
+  res.render("home/home.ejs");
+});
+
+
 
 app.use("/listings", listings);
 app.use("/listings/:id/reviews", reviews);
-app.use("/",users);
+app.use("/", users);
 
 app.use("*", (req, res, next) => {
   next(new ExpressError(404, "Page not Found!"));
@@ -92,9 +114,7 @@ app.use((err, req, res, next) => {
 
 
 
-app.get("/", (req, res) => {
-  res.send("hi i am root!");
-});
+
 app.listen(port, () => {
   console.log(`listining on ${port}`);
 });

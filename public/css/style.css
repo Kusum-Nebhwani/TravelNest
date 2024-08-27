@@ -10,7 +10,7 @@ body {
 /* navbar */
 .navbar {
   
-  height: 4.5rem;
+  height: 4rem;
   background-color: white;
 }
 .fa-compass {
@@ -82,13 +82,13 @@ body {
 }
 
 /* new link */
-.add-btn{
+.add-btn,.signup{
   background-color: #fe424d !important;
   border: none !important;
 }
 
 /* edit link */
-.edit-btn{
+.edit-btn,.login{
   background-color: #fe424d !important;
   border: none !important;
 }
@@ -103,4 +103,13 @@ body {
 .show-card{
   padding-left: 0;
   padding-right: 0;
+}
+
+.flash-message-container {
+  margin-top: 20px;
+}
+
+.search_message{
+  margin-bottom: 20px; 
+  color: #fe424d;
 }
